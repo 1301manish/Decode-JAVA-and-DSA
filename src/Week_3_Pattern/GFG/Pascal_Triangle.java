@@ -1,6 +1,6 @@
 package Week_3_Pattern.GFG;
 
-public class Pascal_Triangle {
+public class  Pascal_Triangle {
     public static void main(String[] args) {
         int n = 4;
         for (int i = 0; i < n; i++) {
