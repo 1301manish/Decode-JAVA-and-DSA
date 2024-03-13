@@ -1,28 +1,28 @@
-package Week_5_Multidimensional_Array;
-
 import java.util.Scanner;
 
-public class RotateMatrixBy90Degree {
+public class Rotate_Matrix_By_90_Degree_Anti_clockwise {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of rows : ");
-        int m = sc.nextInt();
+        int m = sc.nextInt(); // Number of rows
         System.out.println("Enter the number of columns : ");
-        int n = sc.nextInt();
+        int n = sc.nextInt(); // Number of columns
 
-        int [][] arr = new int[m][n];
+        int [][] arr = new int[m][n]; // Initializing the matrix
 
         System.out.println("Enter the elements of the array : ");
+        // Input matrix elements
         for (int i = 0; i < m ; i++) {
             for (int j = 0; j < n ; j++) {
                 arr[i][j] = sc.nextInt();
             }
         }
-        //Transpose of matrix
+
+        // Transpose of matrix
         for (int i = 0; i < m; i++) { // Columns
-            for (int j = 0; j < m; j++) { //Rows
-                if(i<j){
+            for (int j = 0; j < m; j++) { // Rows
+                if(i < j){
+                    // Swap elements across diagonal
                     int temp = arr[i][j];
                     arr[i][j] = arr[j][i];
                     arr[j][i] = temp;
@@ -30,29 +30,18 @@ public class RotateMatrixBy90Degree {
             }
         }
 
-        /*
-        In this way also we can swap
-
-        int a = 0,b = m-1;
-        while(a<b) {
-           // swap arr[i][a) and arr[i][b]
-           int temp = arr[i] [al;
-           arr [i] (a) = arr[i] (b] ;
-           arr [1] [b] = temp;
-           a++;
-           b--;
-         }
-         */
-        //Reverse the row
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < m/2; j++) {
+        // Reversing each column of the matrix
+        for (int j = 0; j < m; j++) {
+            for (int i = 0; i < m/2; i++) {
+                // Swap elements symmetrically across the middle row
                 int temp = arr[i][j];
-                arr[i][j] = arr[i][n-j-1];
-                arr[i][n-j-1] = temp;
+                arr[i][j] = arr[m-i-1][j];
+                arr[m-i-1][j] = temp;
             }
         }
 
-        System.out.println("90 Degree Clockwise Rotated Matrix : ");
+        System.out.println("90 Degree Anti Clockwise Rotated Matrix : ");
+        // Printing the rotated matrix
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.print(arr[i][j] + " ");
