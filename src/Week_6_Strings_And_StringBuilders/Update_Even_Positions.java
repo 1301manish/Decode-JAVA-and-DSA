@@ -1,4 +1,4 @@
-package Week_6_Strings;
+package Week_6_Strings_And_StringBuilders;
 
 import java.util.Scanner;
 
@@ -29,5 +29,15 @@ public class Update_Even_Positions {
 
         // Display the updated string
         System.out.println("Updated String: " + updatedString);
+
+        /*
+        We can use this approach too:
+        char[] ch = new char[inputString.length()];
+        for (int i = 0; i < ch.length; i++) {
+            ch[i] = inputString.charAt(i);
+        }
+        String str =  new String(ch);
+
+        System.out.println(str);*/
     }
 }
