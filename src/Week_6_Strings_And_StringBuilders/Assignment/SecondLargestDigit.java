@@ -8,7 +8,7 @@ public class SecondLargestDigit {
         System.out.print("Enter the string: ");
         String str = sc.next(); // Taking string as input
 
-        int max1 = 0;
+        int max1 = Integer.MIN_VALUE;
         // Finding the maximum digit in the string
         for (int i = 0; i < str.length(); i++) {
             int digitValue = (int) str.charAt(i) - '0';
@@ -16,7 +16,7 @@ public class SecondLargestDigit {
             if (digitValue > max1) max1 = digitValue;
         }
 
-        int max2 = 0;
+        int max2 = Integer.MIN_VALUE;
         // Finding the second largest digit in the string
         for (int i = 0; i < str.length(); i++) {
             int digitValue = (int) str.charAt(i) - '0';
@@ -26,6 +26,7 @@ public class SecondLargestDigit {
         }
 
         // Printing the second largest digit
-        System.out.println(max2);
+        if (max2!=Integer.MIN_VALUE) System.out.println(max2);
+        else System.out.println("Element not found");
     }
 }
