@@ -1,8 +1,10 @@
 package Week_8_Basic_Sorting;
 
+import java.util.Arrays;
 import java.util.Scanner;
+
 // It is based on selection sort
-public class Transform_Array {
+public class Transform_Array_With_Extra_Space {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -23,22 +25,26 @@ public class Transform_Array {
             System.out.print(arr[i] + " ");
         }
 
-        int x = 0;
+
+        int [] brr = new int[n];
         for (int i = 0; i < n; i++) {
-            int min = Integer.MAX_VALUE;
-            int minIdx = -1;
+            brr[i] = arr[i];
+        }
+
+        Arrays.sort(brr);
+
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (arr[j]<min && arr[j]>0){
-                    min=arr[j];
-                    minIdx=j;
+                if (brr[i]==arr[j]){
+                    arr[j]=i;
+                    break;
                 }
             }
-            arr[minIdx]=x;
-            x--;
         }
-        System.out.println("Resultant Array : ");
+
+        System.out.println("\nResultant Array : ");
         for (int i = 0; i < n; i++) {
-            System.out.print(arr[i]*-1 + " ");
+            System.out.print(arr[i] + " ");
         }
     }
 }
