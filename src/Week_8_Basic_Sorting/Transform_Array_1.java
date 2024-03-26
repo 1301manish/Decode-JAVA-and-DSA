@@ -2,7 +2,7 @@ package Week_8_Basic_Sorting;
 
 import java.util.Scanner;
 // It is based on selection sort
-public class Transform_Array {
+public class Transform_Array_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
