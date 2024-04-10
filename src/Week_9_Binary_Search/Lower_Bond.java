@@ -1,7 +1,16 @@
 package Week_9_Binary_Search;
 
 import java.util.Scanner;
+/*
+Linear approach
 
+for(int i=0; i<n; i++){
+    if(arr[i]>x) {
+    System.out.println("Lower bond is : "+arr[i-1]);
+    break;
+    }
+}
+ */
 public class Lower_Bond {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -21,22 +30,23 @@ public class Lower_Bond {
         System.out.print("Enter the target: ");
         int target = sc.nextInt();
 
-        int lo = n; // Initializing lo with n, it will be updated with the lowest index where target can be inserted
-
         int start = 0, end = arr.length - 1;
+        boolean flag = false;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (arr[mid] > target) {
-                // If mid-element is greater than or equal to target, update upperBond and move towards lower indices
-                lo = Math.min(lo, mid);
-                end = mid - 1;
+            if (arr[mid] == target) { // If target found, move to the left for lower bound
+                flag = true;
+                System.out.println("Lower bound : " + arr[mid - 1]);
+                break;
+            } else if (arr[mid] < target) {
+                start = mid + 1; // If target is greater, search in the right half
             } else {
-                // If mid-element is less than target, move towards higher indices
-                start = mid + 1;
+                end = mid - 1; // If target is smaller, search in the left half
             }
         }
-        // Output the lowest index where target can be inserted
-        System.out.println(lo);
+
+        // If lower bound not found within the array, print the last element
+        if (!flag)
+            System.out.println("Lower bound : " + arr[end]);
     }
 }
-
