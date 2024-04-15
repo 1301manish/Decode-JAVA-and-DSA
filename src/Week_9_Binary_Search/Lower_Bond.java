@@ -2,15 +2,21 @@ package Week_9_Binary_Search;
 
 import java.util.Scanner;
 /*
+
+Q. What is lower bond ?
+Lower bond is the smallest index where arr[i]>=target
+
 Linear approach
 
 for(int i=0; i<n; i++){
-    if(arr[i]>x) {
-    System.out.println("Lower bond is : "+arr[i-1]);
+    if(arr[i]>=x) {
+    System.out.println("Lower bond is : "+arr[i]);
     break;
     }
 }
- */
+*/
+import java.util.Scanner;
+
 public class Lower_Bond {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -30,23 +36,22 @@ public class Lower_Bond {
         System.out.print("Enter the target: ");
         int target = sc.nextInt();
 
+        // Initialize lower bound
+        int lower = arr.length-1;
+
+        // Binary search to find the lower bound
         int start = 0, end = arr.length - 1;
-        boolean flag = false;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (arr[mid] == target) { // If target found, move to the left for lower bound
-                flag = true;
-                System.out.println("Lower bound : " + arr[mid - 1]);
-                break;
-            } else if (arr[mid] < target) {
-                start = mid + 1; // If target is greater, search in the right half
+            if (arr[mid] >= target) { // If target found, move to the left for lower bound
+                lower = mid;
+                end = mid - 1;
             } else {
-                end = mid - 1; // If target is smaller, search in the left half
+                start = mid + 1; // If target is smaller, search in the left half
             }
         }
 
-        // If lower bound not found within the array, print the last element
-        if (!flag)
-            System.out.println("Lower bound : " + arr[end]);
+        // Print the index of the lower bound
+        System.out.println("Lower bound is at index : " + lower);
     }
 }

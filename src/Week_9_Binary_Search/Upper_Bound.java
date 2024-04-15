@@ -1,14 +1,16 @@
-// Given a sorted integer array and an integer 'x', find the upper bound of x.
 /*
+Q. What is upper bond ?
+upper bond is the smallest index where arr[i]>target
+
 Linear approach
 
 for(int i=0; i<n; i++){
     if(arr[i]>x) {
-    System.out.println("Upper bond is : "+arr[i]);
+    System.out.println("Lower bond is : "+arr[i]);
     break;
     }
 }
- */
+*/
 package Week_9_Binary_Search;
 
 import java.util.Scanner;
@@ -30,26 +32,22 @@ public class Upper_Bound {
         System.out.print("Enter the target: ");
         int target = sc.nextInt();
 
-        // Initialize start and end pointers for binary search
-        int start = 0, end = arr.length - 1;
-        boolean flag = false; // Flag to track if upper bound found
+        // Initialize lower bound
+        int upper = arr.length-1;
 
-        // Binary search loop
+        // Binary search to find the lower bound
+        int start = 0, end = arr.length - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (arr[mid] == target) { // If target found, move to the right for upper bound
-                flag = true;
-                System.out.println("Upper bound : " + arr[mid + 1]);
-                break;
-            } else if (arr[mid] < target) {
-                start = mid + 1; // If target is greater, search in the right half
+            if (arr[mid] > target) { // If target found, move to the left for lower bound
+                upper = mid;
+                end = mid - 1;
             } else {
-                end = mid - 1; // If target is smaller, search in the left half
+                start = mid + 1; // If target is smaller, search in the left half
             }
         }
 
-        // If upper bound not found within the array, print the last element
-        if (!flag)
-            System.out.println("Upper bound : " + arr[start]);
+        // Print the index of the lower bound
+        System.out.println("Lower bound is at index : " + upper);
     }
 }
