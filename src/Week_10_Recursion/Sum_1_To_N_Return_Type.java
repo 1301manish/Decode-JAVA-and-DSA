@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Sum_1_To_N_Return_Type {
 
     public static int sum(int n){
-        if (n==0||n==1) return n;
+        if (n==0) return 0;
         return n+sum(n-1);
     }
     public static void main(String[] args) {
