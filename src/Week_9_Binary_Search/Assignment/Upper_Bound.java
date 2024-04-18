@@ -1,16 +1,27 @@
-package Week_9_Binary_Search;
+/*
+Q. What is upper bond ?
+upper bond is the smallest index where arr[i]>target
+
+Linear approach
+
+for(int i=0; i<n; i++){
+    if(arr[i]>x) {
+    System.out.println("Lower bond is : "+arr[i]);
+    break;
+    }
+}
+*/
+package Week_9_Binary_Search.Assignment;
 
 import java.util.Scanner;
 
-public class First_Occurrence {
+public class Upper_Bound {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         // Get the size of the array from the user
         System.out.print("Enter the size of the Array: ");
         int n = sc.nextInt();
         int[] arr = new int[n];
-
         // Get the elements of the array from the user (assuming the array is sorted)
         System.out.print("Enter the elements of Array (sorted): ");
         for (int i = 0; i < n; i++) {
@@ -21,26 +32,22 @@ public class First_Occurrence {
         System.out.print("Enter the target: ");
         int target = sc.nextInt();
 
+        // Initialize lower bound
+        int upper = arr.length;
+
+        // Binary search to find the lower bound
         int start = 0, end = arr.length - 1;
-        boolean flag = false;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (arr[mid] == target) { // If target found, move to the left for lower bound
-                if (mid > 0 && arr[mid]==arr[mid-1]) end = mid - 1;
-                else {
-                    flag = true;
-                    System.out.println("First occurrence of " + target + " is at : " + mid);
-                    break;
-                }
-            } else if (arr[mid] < target) {
-                start = mid + 1; // If target is greater, search in the right half
+            if (arr[mid] > target) { // If target found, move to the left for lower bound
+                upper = mid;
+                end = mid - 1;
             } else {
-                end = mid - 1; // If target is smaller, search in the left half
+                start = mid + 1; // If target is smaller, search in the left half
             }
         }
 
-        // If lower bound not found within the array, print the last element
-        if (!flag)
-            System.out.println("Element does not exist");
+        // Print the index of the lower bound
+        System.out.println("Lower bound is at index : " + upper);
     }
 }

@@ -1,8 +1,8 @@
-package Week_9_Binary_Search;
+package Week_9_Binary_Search.Assignment;
 
 import java.util.Scanner;
 
-public class First_Occurrence {
+public class Occurrence_Of_Element {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -21,26 +21,46 @@ public class First_Occurrence {
         System.out.print("Enter the target: ");
         int target = sc.nextInt();
 
+        int firstOccur = -1;
+        int lastOccur = -1;
+
+        //Find lower bond
         int start = 0, end = arr.length - 1;
-        boolean flag = false;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (arr[mid] == target) { // If target found, move to the left for lower bound
+            if (arr[mid] == target) {
                 if (mid > 0 && arr[mid]==arr[mid-1]) end = mid - 1;
                 else {
-                    flag = true;
-                    System.out.println("First occurrence of " + target + " is at : " + mid);
+                    firstOccur = mid;
                     break;
                 }
             } else if (arr[mid] < target) {
-                start = mid + 1; // If target is greater, search in the right half
+                start = mid + 1;
             } else {
-                end = mid - 1; // If target is smaller, search in the left half
+                end = mid - 1;
             }
         }
 
-        // If lower bound not found within the array, print the last element
-        if (!flag)
-            System.out.println("Element does not exist");
+        //Find upper bond
+        start = 0;
+        end = arr.length - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] == target) {
+                if (mid+1<n && arr[mid]==arr[mid+1])start = mid+1;
+                else {
+                    lastOccur = mid;
+                    break;
+                }
+            } else if (arr[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+
+        if (firstOccur==-1) System.out.println("Element not found in the array");
+        else System.out.println(target + " occurs " + (lastOccur-firstOccur+1) + " times in the array");
     }
 }
