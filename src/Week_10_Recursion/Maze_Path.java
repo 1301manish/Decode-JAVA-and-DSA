@@ -9,16 +9,29 @@ public class Maze_Path {
 //        if (row==m && col==n) return 1;
 //        if (row>m || col>n) return 0;
         int rightPath = Maze_Path1(row,col+1,m,n);
-        int leftPath = Maze_Path1(row+1,col,m,n);
-        return leftPath+rightPath;
+        int downPath = Maze_Path1(row+1,col,m,n);
+        return downPath+rightPath;
+    }
+
+
+    public static void printMaze(int row, int col, int m, int n, String s){
+        if (row>m || col>n) return;
+        if (row==m && col==n) {
+            System.out.println(s);
+            return;
+        }
+//        if (row==m && col==n) return 1;
+//        if (row>m || col>n) return 0;
+        printMaze(row,col+1,m,n,s+"R");
+        printMaze(row+1,col,m,n,s+"D");
     }
 
 
     public static int Maze_Path2(int m, int n){
         if (m==1 || n==1) return 1;
         int rightPath = Maze_Path2(m,n-1);
-        int leftPath = Maze_Path2(m-1,n);
-        return leftPath+rightPath;
+        int downPath = Maze_Path2(m-1,n);
+        return downPath+rightPath;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -29,5 +42,7 @@ public class Maze_Path {
 
         System.out.println("Number of ways to reach the destination using Maze_Path1 is : "+ Maze_Path1(1,1,m,n));
         System.out.println("Number of ways to reach the destination using Maze_Path1 is : "+ Maze_Path2(m,n));
+        System.out.println("All paths : ");
+        printMaze(1, 1, m, n, "");
     }
 }
