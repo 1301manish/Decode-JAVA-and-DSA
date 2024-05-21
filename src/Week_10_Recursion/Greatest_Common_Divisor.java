@@ -1,17 +1,18 @@
 package Week_10_Recursion;
 
 import java.util.Scanner;
+//HCF of a,b <= Minimum(a,b)
+//LCM of a,b >= Maximum(a,b)
+public class Greatest_Common_Divisor {
 
-public class HCF {
-
-    public static int hcf(int a, int b){
+    public static int hcf(int a, int b){     //TC : O(Log(a+b))
         for (int i = Math.min(a,b); i >1 ; i--) {
             if (a%i==0 && b%i==0) return i;
         }
         return 1;
     }
 
-    public static int gcd(int a, int b) {
+    public static int gcd(int a, int b) {    //TC : O(Log(a+b))
         if (b % a == 0) return a;
         return gcd(b % a, a);
     }

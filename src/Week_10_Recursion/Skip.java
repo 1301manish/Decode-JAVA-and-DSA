@@ -25,3 +25,25 @@ public class Skip {
         skip(0, str, "");
     }
 }
+
+
+/* METHOD : 2
+static String removeChar(String str, char ch){
+    // Base Case
+    if (str.length() == 0) {
+    return "";
+    }
+    // Check the first character of the given string if
+    its ch then remove it
+    if (str.charAt(0) == ch) {
+        // Pass the rest of the string
+        // to recursion Function call
+        return removeChar(str.substring(1), ch);
+    }
+
+    // Add the first character since if its not ch if we
+    reached here
+    return str.charAt(0) + removeChar(str.substring(1),
+    ch);
+}
+ */

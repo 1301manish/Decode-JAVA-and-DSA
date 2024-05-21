@@ -1,8 +1,9 @@
 package Week_10_Recursion;
 
 import java.util.Scanner;
-
-public class Generate_String_Without_Consicutive_Ones {
+//*Generate all binary strings of length n without
+//consecutive l's
+public class Generate_String_Without_Consecutive_Ones {
 
     public static void printString(String s, int n){
         int m = s.length();
