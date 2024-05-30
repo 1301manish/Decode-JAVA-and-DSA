@@ -19,3 +19,4 @@ public class Sum_Of_Elements_In_Array {
         System.out.println("The sum of the elements of the array is : " + findSum(arr,0));
     }
 }
+ 
