@@ -41,7 +41,7 @@ static String removeChar(String str, char ch){
         return removeChar(str.substring(1), ch);
     }
 
-    // Add the first character since if its not ch if we
+    // Add the first character since if it's not ch if we
     reached here
     return str.charAt(0) + removeChar(str.substring(1),
     ch);
