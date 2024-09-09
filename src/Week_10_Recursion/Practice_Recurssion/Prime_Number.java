@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Prime_Number {
     public static boolean checkPrime (int n, int i) {
         if (i==n) return true;
-        if (n%2==0) return false;
+        if (n%i==0) return false;
         else return checkPrime(n,i+1);
     }
     public static void main(String[] args) {

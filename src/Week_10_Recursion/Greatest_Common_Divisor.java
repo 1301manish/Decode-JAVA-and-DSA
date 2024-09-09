@@ -5,7 +5,7 @@ import java.util.Scanner;
 //LCM of a,b >= Maximum(a,b)
 public class Greatest_Common_Divisor {
 
-    public static int hcf(int a, int b){     //TC : O(Log(a+b))
+    public static int hcf(int a, int b){     //TC : O(min(a,b))
         for (int i = Math.min(a,b); i >1 ; i--) {
             if (a%i==0 && b%i==0) return i;
         }

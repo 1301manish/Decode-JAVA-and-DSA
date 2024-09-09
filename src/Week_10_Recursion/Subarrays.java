@@ -27,6 +27,7 @@ public class Subarrays {
         // For printing the sub array:
 
         // Recursive call to skip the current element at index 'idx'
+        //Will only work if all the elements in the array are unique
         printSubArray_Recursion(list, arr, idx + 1);
 
         // Check conditions to include the current element in the subset
