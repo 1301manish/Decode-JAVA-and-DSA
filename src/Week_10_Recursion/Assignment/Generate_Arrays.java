@@ -2,7 +2,11 @@ package Week_10_Recursion.Assignment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/*
+Given two sorted arrays A and B of length m and n respectively, generate all possible arrays
+such that the first element is taken from A then from B then from A, and so on in increasing order
+till the arrays are exhausted. The generated arrays should end with an element from B.
+ */
 public class Generate_Arrays {
 
     public static void main(String[] args) {

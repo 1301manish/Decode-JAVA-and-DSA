@@ -1,23 +1,26 @@
-package Week_10_Recursion.Assignment;
+package Week_10_Recursion.Practice_Recurssion;
 
 import java.util.Arrays;
 import java.util.Scanner;
 /*
-Given an array of integers, print a sum triangle using recursion from it such that the first level has all array elements.
-After that, at each level the number of elements is one less than the previous level
-and elements at the level will be the sum of consecutive two elements in the previous level.
-So, if sample input is [5, 4, 3, 2, 1], sample output will be:
-[5, 4, 3, 2, 1]
-[9, 7, 5, 3]
-[16, 12, 8]
-[28, 20]
+Given an array of integers, print a sum triangle from it such that the first level(the bottom
+level in triangular fashion) has all array elements. From then, at each level, the number of
+elements is one less than the previous level and elements at the level is the sum of
+consecutive two elements in the previous level.
+
+Input1 : n = 5
+arr = {1, 2, 3, 4, 5}
+
+Output1 :
 [48]
-*/
+[20, 28]
+[8, 12, 16]
+[3, 5, 7, 9]
+[1, 2, 3, 4, 5]
+ */
 public class Construct_Triangle {
     public static void printTriangle(int [] arr){
         if (arr.length<1) return;
-
-        System.out.println("Construct level : " + Arrays.toString(arr));
 
         int [] temp = new int[arr.length-1];
 
@@ -26,6 +29,9 @@ public class Construct_Triangle {
         }
 
         printTriangle(temp);
+
+        System.out.println("Construct level : " + Arrays.toString(arr));
+
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
