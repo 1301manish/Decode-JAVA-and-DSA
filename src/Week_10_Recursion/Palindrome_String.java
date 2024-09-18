@@ -4,6 +4,17 @@ import java.util.Scanner;
 
 public class Palindrome_String {
 
+    public static boolean isPalindromeUsingLoop(String str){
+        int start = 0;
+        int end = str.length()-1;
+        while (start <= end){
+            if (str.charAt(start) != str.charAt(end)) return false;
+            start++;
+            end--;
+        }
+        return true;
+    }
+
     public static boolean isPalindrome(String str, int start, int end){
         if (start>end) return true;
         if (str.charAt(start)!=str.charAt(end)) return false;
@@ -15,5 +26,6 @@ public class Palindrome_String {
         System.out.print("Enter the string : ");
         String str = sc.nextLine();
         System.out.println(isPalindrome(str,0,(str.length()-1)));
+        System.out.println(isPalindromeUsingLoop(str));
     }
 }
