@@ -11,7 +11,8 @@ public class Shallow_Copy_Of_A_Node {
 
         System.out.println(temp.val); // 100
         temp.val = 12;
-        System.out.println(temp.val); // 12
+        System.out.println(temp.val); //12
+        System.out.println(a.val); // 12 (Here, temp has modified the value of a)
 
     }
 }

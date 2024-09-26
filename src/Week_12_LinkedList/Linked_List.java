@@ -79,10 +79,5 @@ public class Linked_List {
         printRecursively(a);
         System.out.println("Printing the LinkedList in the reverse order");
         printRecursivelyReverse(a);
-
-
-
-
-
     }
 }
