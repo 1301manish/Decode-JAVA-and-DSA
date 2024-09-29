@@ -1,5 +1,5 @@
 /*
-Benefits of LinkedList over array :
+Benefits of LinkedList over array:
     1. No continuous memory allocation
     2. Insertion/Deletion in O(1)
     3. Infinite size
@@ -74,7 +74,7 @@ public class Linked_List {
         System.out.println(a.next.next.next.next.val); // 50
 
         System.out.println("Printing with the help of the loop");
-        print(a);
+        print(a); 
         System.out.println("Printing with the help of recursion");
         printRecursively(a);
         System.out.println("Printing the LinkedList in the reverse order");
